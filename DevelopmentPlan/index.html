@@ -184,9 +184,20 @@ td.right-small-white {
   padding : 0px 4px;
   background-color : #ffffff;
 }
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
 th {
   padding : 0px 0px;
   vertical-align : middle;
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+tr:nth-child(even) {
+  background-color: #f8f8f8;
 }
 #menu {
   margin: 0px 0px 0px 0px;
@@ -372,32 +383,184 @@ th {
 <div class="belt">
 <h3><a name="WorkContents">作業内容</a></h3>
 </div>
-<p>以上の図の中にある作業名に対応する具体的な作業内容を以下に示す。</p>
-<table summary="table">
+<h3>以上の図の中にある作業名に対応する具体的な作業内容を以下に示す。</h3>
+<table>
+  <thead>
+    <tr>
+      <th>順序</th>
+      <th>ファイル</th>
+      <th>理由</th>
+      <th>関係</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- ここに各行を追加します -->
+    <tr>
+      <td>1</td>
+      <td>App.tsx</td>
+      <td>メインアプリケーションコンポーネントとして全体の土台となるため</td>
+      <td>他のコンポーネントとページを組み込む</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Header.tsx</td>
+      <td>ヘッダーは全ページに表示される共通コンポーネントであるため</td>
+      <td>App.tsxで使用される</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Footer.tsx</td>
+      <td>フッターは全ページに表示される共通コンポーネントであるため</td>
+      <td>App.tsxで使用される</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Signin.tsx</td>
+      <td>サインインページはアプリケーションを利用する前の最初のステップのため</td>
+      <td>App.tsxでルーティング設定し、サインアップ後Home.tsxに遷移する</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Signup.tsx</td>
+      <td>サインアップページはアプリケーションを利用する前の最初のステップのため</td>
+      <td>App.tsxでルーティング設定し、サインアップ後Home.tsxに遷移する</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Home.tsx</td>
+      <td>ホームページは他の機能ページへの起点となるため</td>
+      <td>App.tsxでルーティング設定し、他の機能ページへのリンクを提供する</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>About.tsx</td>
+      <td>アプリケーションの使い方を説明するため</td>
+      <td>Home.tsxから遷移できるようにする</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Contact.tsx</td>
+      <td>お問い合わせページはユーザーからのフィードバックを受け付けるため</td>
+      <td>Home.tsxから遷移できるようにする</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>CreateBook.tsx</td>
+      <td>絵本生成の親ページとして、InputForm.tsxとPreview.tsxを組み込むため</td>
+      <td>Home.tsxから遷移できるようにする</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>InputForm.tsx</td>
+      <td>絵本生成の条件入力フォームコンポーネントを作成するため</td>
+      <td>CreateBook.tsxで使用され、入力データをPreview.tsxに渡す</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Preview.tsx</td>
+      <td>絵本生成のプレビューコンポーネントを作成するため</td>
+      <td>CreateBook.tsxで使用され、InputForm.tsxから受け取ったデータを表示する</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>RpgBook.tsx</td>
+      <td>絵本RPGの親ページとして、InputCondition.tsxとStory.tsxを組み込むため</td>
+      <td>Home.tsxから遷移できるようにする</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>InputCondition.tsx</td>
+      <td>絵本RPGの物語条件入力フォームコンポーネントを作成するため</td>
+      <td>RpgBook.tsxで使用され、入力データをStory.tsxに渡す</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Story.tsx</td>
+      <td>絵本RPGの物語進行コンポーネントを作成するため</td>
+      <td>RpgBook.tsxで使用され、InputCondition.tsxから受け取ったデータを表示する</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>それぞれの注意点と使用可能性のあるライブラリ/モジュールを示す</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ファイル</th>
+      <th>注意点</th>
+      <th>使用する可能性のあるライブラリ/モジュール</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>
-      <table border="1" summary="table">
-        <tbody>
-          <tr>
-            <th class="center-padding" abbr="1">作業名</th>
-            <th class="center-padding" abbr="2">作業内容</th>
-          </tr>
-          <tr>
-            <td class="center-padding">作業A</td>
-            <td class="center-padding">A</td>
-          </tr>
-          <tr>
-            <td class="center-padding">作業B</td>
-            <td class="center-padding">B</td>
-          </tr>
-          <tr>
-            <td class="center-padding">作業C</td>
-            <td class="center-padding">C</td>
-          </tr>
-        </tbody>
-      </table>
-      </td>
+      <td>Header.tsx</td>
+      <td>ナビゲーションリンクを正確に配置する。</td>
+      <td>react-router-dom</td>
+    </tr>
+    <tr>
+      <td>Footer.tsx</td>
+      <td>コンテンツがフッターと被らないようにする。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Home.tsx</td>
+      <td>クリアなCTAを提供し、ユーザーが操作しやすくする。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Signup.tsx</td>
+      <td>バリデーションを正確に行い、エラーメッセージを表示。</td>
+      <td>firebase, formik, yup</td>
+    </tr>
+    <tr>
+      <td>Signin.tsx</td>
+      <td>バリデーションを正確に行い、エラーメッセージを表示。</td>
+      <td>firebase, formik, yup</td>
+    </tr>
+    <tr>
+      <td>CreateBook.tsx</td>
+      <td>子コンポーネント間のデータの受け渡しを管理する。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>InputForm.tsx</td>
+      <td>バリデーションを行い、適切なデータを受け取る。</td>
+      <td>formik, yup</td>
+    </tr>
+    <tr>
+      <td>Preview.tsx</td>
+      <td>受け取ったデータを正確に表示し、ダウンロード機能。</td>
+      <td>html2canvas, jsPDF</td>
+    </tr>
+    <tr>
+      <td>RpgBook.tsx</td>
+      <td>子コンポーネント間のデータの受け渡しを管理する。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>InputCondition.tsx</td>
+      <td>バリデーションを行い、適切なデータを受け取る。</td>
+      <td>formik, yup</td>
+    </tr>
+    <tr>
+      <td>Story.tsx</td>
+      <td>選択肢に基づいて物語を進める。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>About.tsx</td>
+      <td>アプリケーションの使い方をわかりやすく説明する。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Contact.tsx</td>
+      <td>お問い合わせフォームのバリデーションと送信機能。</td>
+      <td>formik, yup, emailサービスAPI</td>
+    </tr>
+    <tr>
+      <td>App.tsx</td>
+      <td>ルーティングとページ構成を正確に設定する。</td>
+      <td>react-router-dom</td>
     </tr>
   </tbody>
 </table>
